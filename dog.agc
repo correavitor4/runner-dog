@@ -37,7 +37,43 @@ endfunction
 
 function updateDogState()
 	SetSpritePosition(1,GetSpriteX(1)+4,GetSpriteY(1))  //dog move 4px per frame
+	SetSpritePhysicsCanRotate(1,0)
 endfunction
+
+
+DogJump:
+
+	if(GetRawKeyPressed(32) and jumping=0)
+		jump_count=30
+		jumping=1
+	endif
+	
+	if(jump_count>0)
+		jump_count=jump_count-1
+
+	endif
+	
+	if(jump_count=0)
+	
+	endif
+	
+	
+	
+	
+	
+	if (GetSpriteY(1)>524)
+		jumping=0
+	endif
+	
+	SetSpritePosition(1,GetSpriteX(1),GetSpriteY(1)-jump_count)
+	
+	Print(jumping)
+	
+	
+	
+return 
+
+
 
 
 

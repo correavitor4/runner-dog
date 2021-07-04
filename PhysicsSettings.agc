@@ -1,4 +1,4 @@
 StartPhysics:
-	SetPhysicsGravity(0,100000)
+	SetPhysicsGravity(0,1000000)
 
 return

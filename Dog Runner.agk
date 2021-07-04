@@ -45,9 +45,15 @@ FILE_1=LoadSprites.agc;-1
 FILE_2=dog.agc;-1
 FILE_3=PhysicsSettings.agc;-1
 FILE_4=verifyCamera.agc;-1
+FILE_5=Cat.agc;-1
 
 [files]
-FILE_NAME_0=1;verifyCamera.agc;404;0
+FILE_NAME_0=0;main.agc;288;0
+FILE_NAME_1=0;LoadSprites.agc;186;1
+FILE_NAME_2=0;dog.agc;1110;2
+FILE_NAME_3=0;PhysicsSettings.agc;41;3
+FILE_NAME_4=0;verifyCamera.agc;238;4
+FILE_NAME_5=1;Cat.agc;0;5
 
 [project]
 description=
