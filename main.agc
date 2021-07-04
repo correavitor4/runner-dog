@@ -12,6 +12,7 @@
 #include "LoadBackgrounds.agc"
 #include "verifyCamera.agc"
 #include "Cat.agc"
+#include "Obstacles.agc"
 
 
 

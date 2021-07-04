@@ -10,8 +10,7 @@ ground2=5
 ground3=7
 dog=1
 cat=8
-
-
+ObstableSpriteId = 200 //I'm reserving sprite ids above 200 for the obstacle sprites I'm going to render
 
 
 /*
@@ -27,6 +26,7 @@ OTHER:
 //Load images
 loadDogImages()
 loadCatImages()
+loadObstacleImages()
 
 LoadImage(13,"background/layer_1.png")
 LoadImage(14,"background/layer_3_new.png")
@@ -42,11 +42,16 @@ CreateSprite(ground3,14)
 
 createDogSprite(dog,1)
 createCatSprite()
+/*createObstacleSprites(9,20)
+createObstacleSprites(10,21)
+createObstacleSprites(11,22)*/
 
 
+
+
+//ANIMATE SPRITES
 animateDogSprite()
 animateCatSprite()
-
 
 
 
@@ -61,6 +66,9 @@ SetSpriteSize(background3,GetVirtualWidth(),GetVirtualHeight())
 SetSpriteSize(ground3,GetVirtualWidth(),100)
 SetSpriteSize(dog,130,100)
 SetSpriteSize(cat,110,80)
+/*SetSpriteSize(9,40,100)
+SetSpriteSize(10,50,100)
+SetSpriteSize(11,50,100)*/
 
 
 //Set the position of sprites
