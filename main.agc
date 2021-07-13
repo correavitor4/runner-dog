@@ -30,7 +30,7 @@ y=0
 first_frame_complete = 0
 jumping = 0
 jump_count=1
-
+obstacleXCountPosition = 1200
 
 
 
@@ -67,15 +67,18 @@ do
 	verifyCameraPosition(first_frame_complete)
 	
 	x=x+4
+	obstacleXCountPosition=obstacleXCountPosition+4
+	
+	
 	
 	updateDogState()
 	updateCatState()
 	
-	
+	gosub UpdateObstacles
 	
 	
 	gosub DogJump
-	
+	 
 	first_frame_complete=1
     Sync()
 loop

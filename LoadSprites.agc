@@ -42,6 +42,8 @@ CreateSprite(ground3,14)
 
 createDogSprite(dog,1)
 createCatSprite()
+
+
 /*createObstacleSprites(9,20)
 createObstacleSprites(10,21)
 createObstacleSprites(11,22)*/
@@ -69,6 +71,7 @@ SetSpriteSize(cat,110,80)
 /*SetSpriteSize(9,40,100)
 SetSpriteSize(10,50,100)
 SetSpriteSize(11,50,100)*/
+
 
 
 //Set the position of sprites
@@ -115,6 +118,14 @@ SetSpritePhysicsMass(8,10)
 PlaySprite(1,20)
 PlaySprite(8,10)
 
+
+while obstacleXCountPosition<2400
+	createObstacleSprites(ObstableSpriteId,Random(20,23),obstacleXCountPosition)
+	obstacleXCountPosition=obstacleXCountPosition+300
+	ObstableSpriteId=ObstableSpriteId+1
+	
+	
+endwhile
 
 
 return
