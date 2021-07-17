@@ -120,7 +120,7 @@ PlaySprite(8,10)
 
 
 while obstacleXCountPosition<2400
-	createObstacleSprites(ObstableSpriteId,Random(20,23),obstacleXCountPosition)
+	createObstacleSprites(ObstableSpriteId,Random(20,22),obstacleXCountPosition)
 	obstacleXCountPosition=obstacleXCountPosition+300
 	ObstableSpriteId=ObstableSpriteId+1
 	

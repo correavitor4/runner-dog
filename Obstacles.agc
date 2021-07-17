@@ -2,7 +2,7 @@ function loadObstacleImages()
 	LoadImage(20,"obstacles/brick_1.png")
 	LoadImage(21,"obstacles/brick_2.png")
 	LoadImage(22,"obstacles/brick_3.png")
-	LoadImage(23, "obstacles/SmallCrate.png")
+	//LoadImage(23, "obstacles/SmallCrate.png")
 endfunction
 
 
@@ -25,10 +25,10 @@ function createObstacleSprites(id_sprite,id_image,positionXCount)
 		SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-350)-GetSpriteY(id_sprite))
 	endif
 	
-	if(id_image=23)
+	/*if(id_image=23)
 		setspriteSize(id_sprite,110,100)
 		SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
-	endif
+	endif*/
 	
 	
 	
@@ -37,7 +37,7 @@ endfunction
 
 UpdateObstacles:
 	if (Mod(obstacleXCountPosition,300)=0)
-		createObstacleSprites(ObstableSpriteId,random(20,23),obstacleXCountPosition)
+		createObstacleSprites(ObstableSpriteId,random(20,22),obstacleXCountPosition)
 		ObstableSpriteId=ObstableSpriteId+1
 	endif
 
