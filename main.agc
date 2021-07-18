@@ -60,11 +60,7 @@ gosub StartPhysics
 
 
 do
-	PrintC("X: ")
-	print(x)
-	PrintC("Y: ")
-	Print(y)
-	print(GetSpriteX(1))
+	
 	SetViewOffset(x,y)
 	verifyCameraPosition(first_frame_complete)
 	

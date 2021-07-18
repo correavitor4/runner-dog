@@ -54,12 +54,22 @@ VerifyObstaclesCollision:
 	
 	xMin=GetSpriteX(actuallyObstacleId)-GetSpriteWidth(actuallyObstacleId)/2
 	xMax=GetSpriteX(actuallyObstacleId)+GetSpriteWidth(actuallyObstacleId)/2
+	yMin=GetSpriteY(actuallyObstacleId)+GetSpriteHeight(actuallyObstacleId)/2
+	yMax=GetSpriteY(actuallyObstacleId)-GetSpriteHeight(actuallyObstacleId)/2
 	xMinDog=GetSpriteX(1)-GetSpriteWidth(1)/2
 	xMaxDog=GetSpriteX(1)+GetSpriteWidth(1)/2
+	yMinDog=GetSpriteY(1)+GetSpriteHeight(1)/2
+	yMaxDog=GetSpriteY(1)-GetSpriteHeight(1)/2
 	
 	if(xMaxDog>=xMin)
 		PrintC("Está passando em um obstáculo")
 		PrintC(actuallyObstacleId)
+		
+		if yMinDog > yMax
+			SetSpritePosition(1,GetSpriteX(1),yMax)
+		endif
+		
+		
 	endif
 	
 	if(xMinDog>xMax)
