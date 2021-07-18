@@ -36,38 +36,54 @@ endfunction
 
 
 function updateDogState()
-	SetSpritePosition(1,GetSpriteX(1)+4,GetSpriteY(1))  //dog move 4px per frame
-	SetSpritePhysicsCanRotate(1,0)
+	if(GetSpriteY(1)>524)
+		SetSpritePosition(1,GetSpriteX(1)+4,524)  //dog move 4px per frame
+		SetSpritePhysicsCanRotate(1,0)
+	else
+		SetSpritePosition(1,GetSpriteX(1)+4,GetSpriteY(1))  //dog move 4px per frame
+		SetSpritePhysicsCanRotate(1,0)
+	endif
+	
 endfunction
 
 
 DogJump:
 
-	if(GetRawKeyPressed(32) and jumping=0)
+	if(GetRawKeyPressed(32) and jumping<2)
 		jump_count=30
-		jumping=1
+		jumping=jumping+1
 	endif
 	
 	if(jump_count>0)
 		jump_count=jump_count-1
-
-	endif
-	
-	if(jump_count=0)
+		SetSpritePosition(1,GetSpriteX(1),GetSpriteY(1)-jump_count)
 	
 	endif
 	
+	/*if(GetPhysicsCollision(1,3)=1)
+		jumping=0
+		print("Colidindo com o chão")
+	endif
+	
+	if(GetPhysicsCollision(1,5))
+		jumping=0
+		print("Colidindo com o chão")
+	endif
+		
+	if(GetPhysicsCollision(1,7))
+		jumping=0
+		print("Colidindo com o chão")
+	endif*/
 	
 	
 	
-	
-	if (GetSpriteY(1)>524)
+	if (GetSpriteY(1)=524)
 		jumping=0
 	endif
 	
-	SetSpritePosition(1,GetSpriteX(1),GetSpriteY(1)-jump_count)
 	
-	Print(jumping)
+	
+	Print(GetSpriteY(1))
 	
 	
 	

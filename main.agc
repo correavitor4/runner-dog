@@ -3,7 +3,7 @@
 // Created: 2021-06-10
 
 
-
+SetPhysicsDebugOn()
 
 
 #include "LoadSprites.agc"
@@ -29,7 +29,7 @@ y=0
 //Control variables
 first_frame_complete = 0
 jumping = 0
-jump_count=1
+jump_count=0
 obstacleXCountPosition = 1200
 
 

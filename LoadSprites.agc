@@ -88,10 +88,10 @@ SetSpritePosition(cat,650,GetSpriteY(ground)-103)
 
 //PHYSICS
 SetSpriteShapeBox(dog,-75,-50,75,50,0)
-SetSpriteShapeBox(dog,-55,-40,55,40,0)
-SetSpriteShapeBox(ground,-GetVirtualWidth()/2,-45,GetVirtualWidth()/2,45,0)
-SetSpriteShapeBox(ground2,-GetVirtualWidth()/2,-45,GetVirtualWidth()/2,45,0)
-SetSpriteShapeBox(ground3,-GetVirtualWidth()/2,-45,GetVirtualWidth()/2,45,0)
+
+SetSpriteShapeBox(ground,-GetVirtualWidth()/2+1,-45,GetVirtualWidth()/2-1,50,0)
+SetSpriteShapeBox(ground2,-GetVirtualWidth()/2+1,-45,GetVirtualWidth()/2-1,50,0)
+SetSpriteShapeBox(ground3,-GetVirtualWidth()/2+1,-45,GetVirtualWidth()/2-1,50,0)
 
 
 SetSpritePhysicsOn(dog,2)
