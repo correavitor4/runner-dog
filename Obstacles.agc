@@ -10,25 +10,29 @@ endfunction
 function createObstacleSprites(id_sprite,id_image,positionXCount)
 	CreateSprite(id_sprite,id_image)
 	
-	if(id_image=20)
+	if(MOD(positionXCount,300)=0)
+		if(id_image=20)
 		setspriteSize(id_sprite,110,100)
 		SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
+		endif
+		
+		if(id_image=21)
+			setspriteSize(id_sprite,110,200)
+			SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-300)-GetSpriteY(id_sprite))
+		endif
+		
+		if(id_image=22)
+			setspriteSize(id_sprite,110,250)
+			SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-350)-GetSpriteY(id_sprite))
+		endif
+		
+		/*if(id_image=23)
+			setspriteSize(id_sprite,110,100)
+			SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
+		endif*/
 	endif
 	
-	if(id_image=21)
-		setspriteSize(id_sprite,110,200)
-		SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-300)-GetSpriteY(id_sprite))
-	endif
 	
-	if(id_image=22)
-		setspriteSize(id_sprite,110,250)
-		SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-350)-GetSpriteY(id_sprite))
-	endif
-	
-	/*if(id_image=23)
-		setspriteSize(id_sprite,110,100)
-		SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
-	endif*/
 	
 	
 	
