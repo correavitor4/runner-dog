@@ -31,6 +31,7 @@ first_frame_complete = 0
 jumping = 0
 jump_count=0
 obstacleXCountPosition = 1200
+actuallyObstacleId=200
 
 
 
@@ -63,6 +64,7 @@ do
 	print(x)
 	PrintC("Y: ")
 	Print(y)
+	print(GetSpriteX(1))
 	SetViewOffset(x,y)
 	verifyCameraPosition(first_frame_complete)
 	
@@ -78,6 +80,8 @@ do
 	
 	
 	gosub DogJump
+	
+	gosub VerifyObstaclesCollision
 	 
 	first_frame_complete=1
     Sync()

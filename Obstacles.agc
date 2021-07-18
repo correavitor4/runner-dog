@@ -13,8 +13,8 @@ function createObstacleSprites(id_sprite,id_image,positionXCount)
 	//The function only create sprite when the rest division of coordinates/300 are 0
 	if(MOD(positionXCount,300)=0)
 		if(id_image=20)
-		setspriteSize(id_sprite,110,100)
-		SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
+			setspriteSize(id_sprite,110,100)
+			SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
 		endif
 		
 		if(id_image=21)
@@ -31,6 +31,8 @@ function createObstacleSprites(id_sprite,id_image,positionXCount)
 			setspriteSize(id_sprite,110,100)
 			SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
 		endif*/
+		
+		
 	endif
 	
 	
@@ -45,6 +47,23 @@ UpdateObstacles:
 		createObstacleSprites(ObstableSpriteId,random(20,22),obstacleXCountPosition)
 		ObstableSpriteId=ObstableSpriteId+1
 	endif
-
-
 return
+
+
+VerifyObstaclesCollision:
+	
+	xMin=GetSpriteX(actuallyObstacleId)-GetSpriteWidth(actuallyObstacleId)/2
+	xMax=GetSpriteX(actuallyObstacleId)+GetSpriteWidth(actuallyObstacleId)/2
+	xMinDog=GetSpriteX(1)-GetSpriteWidth(1)/2
+	xMaxDog=GetSpriteX(1)+GetSpriteWidth(1)/2
+	
+	if(xMaxDog>=xMin)
+		PrintC("Está passando em um obstáculo")
+		PrintC(actuallyObstacleId)
+	endif
+	
+	if(xMinDog>xMax)
+		actuallyObstacleId=actuallyObstacleId+1
+	endif
+	
+return 
