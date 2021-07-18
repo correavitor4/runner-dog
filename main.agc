@@ -3,7 +3,7 @@
 // Created: 2021-06-10
 
 
-SetPhysicsDebugOn()
+
 
 
 #include "LoadSprites.agc"
@@ -32,6 +32,7 @@ jumping = 0
 jump_count=0
 obstacleXCountPosition = 1200
 actuallyObstacleId=200
+yGroungDog=524
 
 
 
@@ -67,6 +68,7 @@ do
 	x=x+4
 	obstacleXCountPosition=obstacleXCountPosition+4
 	
+	print(jumping)
 	
 	
 	updateDogState()

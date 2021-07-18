@@ -60,24 +60,8 @@ DogJump:
 	
 	endif
 	
-	/*if(GetPhysicsCollision(1,3)=1)
-		jumping=0
-		print("Colidindo com o chão")
-	endif
 	
-	if(GetPhysicsCollision(1,5))
-		jumping=0
-		print("Colidindo com o chão")
-	endif
-		
-	if(GetPhysicsCollision(1,7))
-		jumping=0
-		print("Colidindo com o chão")
-	endif*/
-	
-	
-	
-	if (GetSpriteY(1)=524)
+	if (GetSpriteY(1)=yGroundDog)
 		jumping=0
 	endif
 	

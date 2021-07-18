@@ -96,9 +96,9 @@ SetSpriteShapeBox(ground3,-GetVirtualWidth()/2+1,-45,GetVirtualWidth()/2-1,50,0)
 
 SetSpritePhysicsOn(dog,2)
 SetSpritePhysicsOn(cat,2)
-SetSpritePhysicsOn(ground,1)
-SetSpritePhysicsOn(ground2,1)
-SetSpritePhysicsOn(ground3,1)
+//SetSpritePhysicsOn(ground,1)
+//SetSpritePhysicsOn(ground2,1)
+//SetSpritePhysicsOn(ground3,1)
 
 
 
