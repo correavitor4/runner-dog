@@ -79,7 +79,9 @@ VerifyObstaclesCollision:
 		PrintC(actuallyObstacleId)
 		
 		if yMinDog > yMax
-			SetSpritePosition(1,GetSpriteX(1),yGroundDog)
+			if xMinDog < xMax
+				SetSpritePosition(1,GetSpriteX(1),yGroundDog)
+			endif
 		endif
 		
 		
@@ -88,5 +90,7 @@ VerifyObstaclesCollision:
 	if(xMaxDog>=xMinNextObstacle)
 		actuallyObstacleId=actuallyObstacleId+1
 	endif
+	
+	
 	
 return 
