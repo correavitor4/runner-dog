@@ -10,6 +10,7 @@ endfunction
 function createObstacleSprites(id_sprite,id_image,positionXCount)
 	CreateSprite(id_sprite,id_image)
 	
+	//The function only create sprite when the rest division of coordinates/300 are 0
 	if(MOD(positionXCount,300)=0)
 		if(id_image=20)
 		setspriteSize(id_sprite,110,100)
