@@ -19,8 +19,8 @@ function animateCatSprite()
 	next i
 endfunction
 
+
 function updateCatState()
-	SetSpritePosition(8,GetSpriteX(8)+4,GetSpriteY(8))  //cat move 4px per frame
-	SetSpritePhysicsCanRotate(8,0)
+	SetSpritePhysicsVelocity(8,10000,0)
 endfunction
 

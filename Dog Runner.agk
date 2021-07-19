@@ -49,13 +49,13 @@ FILE_5=Cat.agc;-1
 FILE_6=Obstacles.agc;-1
 
 [files]
-FILE_NAME_0=0;main.agc;1045;0
+FILE_NAME_0=1;main.agc;1225;0
 FILE_NAME_1=0;LoadSprites.agc;222;1
-FILE_NAME_2=0;dog.agc;682;2
+FILE_NAME_2=0;dog.agc;694;2
 FILE_NAME_3=0;PhysicsSettings.agc;41;3
 FILE_NAME_4=0;verifyCamera.agc;238;4
-FILE_NAME_5=0;Cat.agc;536;5
-FILE_NAME_6=1;Obstacles.agc;0;6
+FILE_NAME_5=0;Cat.agc;385;5
+FILE_NAME_6=0;Obstacles.agc;1456;6
 
 [project]
 description=

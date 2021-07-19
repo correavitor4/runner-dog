@@ -16,7 +16,7 @@
 
 
 
-
+SetPhysicsDebugOn()
 
 
 
@@ -62,7 +62,7 @@ gosub StartPhysics
 
 do
 	
-	SetViewOffset(x,y)
+	SetViewOffset(GetSpriteX(1)-100,y)
 	verifyCameraPosition(first_frame_complete)
 	
 	x=x+4
@@ -70,16 +70,10 @@ do
 	
 	print(jumping)
 	
-	
+
 	updateDogState()
 	updateCatState()
 	
-	gosub UpdateObstacles
-	
-	
-	gosub DogJump
-	
-	gosub VerifyObstaclesCollision
 	 
 	first_frame_complete=1
     Sync()
