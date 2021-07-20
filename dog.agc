@@ -60,7 +60,11 @@ UpdateDogState:
 	endif
 	
 	
-	
+	for i=200 to (actuallyObstacleId-1)
+		if(GetPhysicsCollision(1,i))
+			jumping=0
+		endif
+	next i
 	
 	
 	SetSpritePhysicsVelocity(1,charactersVelocity,GetSpritePhysicsVelocityY(1))

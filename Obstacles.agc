@@ -36,8 +36,10 @@ function createObstacleSprites(id_sprite,positionXCount)
 	endif
 	
 	
+	//TURN ON SPRITE PHYSICS
 	SetSpritePhysicsOn(id_sprite,1)
 	
+	//CREATE SHAPEBOX OF SPRITE PHYSICS
 	SetSpriteShapeBox(id_sprite,-GetSpriteWidth(id_sprite)/2,-GetSpriteHeight(id_sprite)/2,GetSpriteWidth(id_sprite)/2,GetSpriteHeight(id_sprite)/2,0)
 endfunction
 
