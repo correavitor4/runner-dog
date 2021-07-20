@@ -22,6 +22,7 @@ function createObstacleSprites(id_sprite,positionXCount)
 	if(id_image=20)
 		setspriteSize(id_sprite,110,100)
 		SetSpritePosition(id_sprite,Random(positionXCount+1280,positionXCount+1680),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
+		
 	endif
 	
 	if(id_image=21)
@@ -34,6 +35,10 @@ function createObstacleSprites(id_sprite,positionXCount)
 		SetSpritePosition(id_sprite,Random(positionXCount+1280,positionXCount+1680),(GetVirtualHeight()-350)-GetSpriteY(id_sprite))
 	endif
 	
+	
+	SetSpritePhysicsOn(id_sprite,1)
+	
+	SetSpriteShapeBox(id_sprite,-GetSpriteWidth(id_sprite)/2,-GetSpriteHeight(id_sprite)/2,GetSpriteWidth(id_sprite)/2,GetSpriteHeight(id_sprite)/2,0)
 endfunction
 
 
