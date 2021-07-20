@@ -20,7 +20,9 @@ function animateCatSprite()
 endfunction
 
 
-function updateCatState()
-	SetSpritePhysicsVelocity(8,10000,0)
+function updateCatState(charactersVelocity)
+	
+	
+	SetSpritePhysicsVelocity(8,charactersVelocity,0)
 endfunction
 

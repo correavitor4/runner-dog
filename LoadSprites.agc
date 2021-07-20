@@ -109,8 +109,8 @@ SetSpritePhysicsCanRotate(8,0)
 
 
 
-SetSpritePhysicsMass(1,10)
-SetSpritePhysicsMass(8,10)
+SetSpritePhysicsMass(1,0.005)
+SetSpritePhysicsMass(8,0.005)
 
 
 
@@ -126,6 +126,14 @@ SetSpritePhysicsFriction(8,0)
 //Turn on sprites animation
 PlaySprite(1,20)
 PlaySprite(8,10)
+
+
+
+//Start cat and dog velocity
+//SetSpritePhysicsVelocity(8,charactersVelocity,0)
+//SetSpritePhysicsVelocity(1,charactersVelocity,0)
+
+
 
 
 while obstacleXCountPosition<2400

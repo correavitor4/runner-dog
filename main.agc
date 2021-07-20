@@ -6,6 +6,9 @@
 
 
 
+
+
+
 #include "LoadSprites.agc"
 #include "dog.agc"
 #include "PhysicsSettings.agc"
@@ -21,18 +24,22 @@ SetPhysicsDebugOn()
 
 
 //VARIABLES
-x=0
-y=0
+pontuacao = 0
+
+
 
 
 
 //Control variables
 first_frame_complete = 0
-jumping = 0
-jump_count=0
+jumpCount=0
+jumping=0
 obstacleXCountPosition = 1200
 actuallyObstacleId=200
-yGroungDog=524
+
+charactersVelocity = 7500
+actuallyBackground =1
+nextChange = 1280
 
 
 
@@ -62,17 +69,17 @@ gosub StartPhysics
 
 do
 	
-	SetViewOffset(GetSpriteX(1)-100,y)
-	verifyCameraPosition(first_frame_complete)
+	SetViewOffset(GetSpriteX(1),0)
+	print(GetSpriteX(1))
+	gosub VerifyCameraPosition
 	
-	x=x+4
 	obstacleXCountPosition=obstacleXCountPosition+4
 	
-	print(jumping)
-	
+	print(actuallyBackground)
+	print(nextChange)
 
-	updateDogState()
-	updateCatState()
+	gosub UpdateDogState
+	updateCatState(charactersVelocity)
 	
 	 
 	first_frame_complete=1

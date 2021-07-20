@@ -35,8 +35,36 @@ function animateDogSprite()
 endfunction
 
 
-function updateDogState()
-	//SetSpritePhysicsForce(1,GetSpriteX(1)+100,0,100000,0)
-	SetSpritePhysicsVelocity(1,10000,0)
-endfunction
+UpdateDogState:
+	if(GetRawKeyPressed(32) and jumping<2)
+		jump_count=30
+		jumping=jumping+1
+	endif
+	
+	if(jump_count>0)
+		jump_count=jump_count-1
+		SetSpritePosition(1,GetSpriteX(1),GetSpriteY(1)-jump_count)
+	
+	endif
+	
+	if(GetPhysicsCollision(1,3))
+		jumping=0
+	endif
+	
+	if(GetPhysicsCollision(1,5))
+		jumping=0
+	endif
+	
+	if(GetPhysicsCollision(1,7))
+		jumping=0
+	endif
+	
+	
+	
+	
+	
+	SetSpritePhysicsVelocity(1,charactersVelocity,GetSpritePhysicsVelocityY(1))
+
+	
+return
 
