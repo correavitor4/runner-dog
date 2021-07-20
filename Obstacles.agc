@@ -50,6 +50,29 @@ UpdateObstacles:
 		actuallyObstacleId=actuallyObstacleId+1
 		nextPositionToCreateObstacle= nextPositionToCreateObstacle+400
 	endif
+	
+	
+	//VERIFY COLLISIONS
+	for i=200 to (actuallyObstacleId-1)
+		if(GetPhysicsCollision(1,i))
+			jumping=0
+		endif
+		
+		if(GetPhysicsCollision(8,i))
+			if i = lastObstacleCatCollideId
+				
+			else
+				lastObstacleCatCollideId = i
+				newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
+				SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
+			endif
+		endif
+		printc("gato Y: ")
+		printc(GetSpriteY(8)+GetSpriteHeight(8)/2)
+		printc("altura obstáculo superfície: ")
+		Print(GetSpriteY(200) -GetSpriteHeight(200)/2)
+	next i
 return
+
 
 
