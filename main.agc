@@ -16,6 +16,7 @@
 #include "verifyCamera.agc"
 #include "Cat.agc"
 #include "Obstacles.agc"
+#include "Sounds.agc"
 
 
 
@@ -65,6 +66,7 @@ UseNewDefaultFonts( 1 ) // since version 2.0.22 we can use nicer default fonts
 
 gosub LoadSprites
 gosub StartPhysics
+gosub CreateSounds
 
 
 
@@ -85,7 +87,7 @@ do
 	gosub UpdateObstacles
 	first_frame_complete=1
 	
-	
+	gosub UpdateSounds
 	
 	
 	

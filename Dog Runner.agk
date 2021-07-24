@@ -47,15 +47,17 @@ FILE_3=PhysicsSettings.agc;-1
 FILE_4=verifyCamera.agc;-1
 FILE_5=Cat.agc;-1
 FILE_6=Obstacles.agc;-1
+FILE_7=Sounds.agc;-1
 
 [files]
-FILE_NAME_0=0;main.agc;440;0
-FILE_NAME_1=0;LoadSprites.agc;2673;2
+FILE_NAME_0=0;main.agc;590;0
+FILE_NAME_1=0;LoadSprites.agc;112;2
 FILE_NAME_2=0;dog.agc;1129;1
-FILE_NAME_3=1;PhysicsSettings.agc;51;4
+FILE_NAME_3=0;PhysicsSettings.agc;56;4
 FILE_NAME_4=0;verifyCamera.agc;1192;5
-FILE_NAME_5=0;Cat.agc;437;3
-FILE_NAME_6=0;Obstacles.agc;2147;6
+FILE_NAME_5=0;Cat.agc;491;3
+FILE_NAME_6=0;Obstacles.agc;2507;6
+FILE_NAME_7=1;Sounds.agc;0;7
 
 [project]
 description=
