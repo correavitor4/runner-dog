@@ -45,33 +45,83 @@ endfunction
 
 
 UpdateObstacles:
+	Print(lastCreatedObstacle)
+	
 	if GetSpriteX(1)>=nextPositionToCreateObstacle
-		createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
-		actuallyObstacleId=actuallyObstacleId+1
+		
+		
+		
+		if actuallyObstacleId <= 210
+			DeleteSprite(actuallyObstacleId)
+			createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
+			lastCreatedObstacle = actuallyObstacleId
+			actuallyObstacleId=actuallyObstacleId+1
+			
+		else 
+			maxSpritebusy=1
+			DeleteSprite(200)
+			actuallyObstacleId=200
+			createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
+			lastCreatedObstacle = actuallyObstacleId
+			actuallyObstacleId=actuallyObstacleId+1
+			
+
+			
+		endif	
+		
+		
+		
 		nextPositionToCreateObstacle= nextPositionToCreateObstacle+400
 	endif
 	
 	
 	//VERIFY COLLISIONS
-	for i=200 to (actuallyObstacleId-1)
-		if(GetPhysicsCollision(1,i))
-			jumping=0
-		endif
-		
-		if(GetPhysicsCollision(8,i))
-			if i = lastObstacleCatCollideId
+	
+	if(maxSpritebusy=0)
+		for i=200 to (actuallyObstacleId-1)
+			if(GetPhysicsCollision(1,i))
+				jumping=0
+			endif
+			
+			if(GetPhysicsCollision(8,i))
+				if i = lastObstacleCatCollideId
+					
+				else
+					lastObstacleCatCollideId = i
+					newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
+					SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
+				endif
+			endif
+			
+		next i
+	
+	else
+			
+		for i=200 to (210)
+			if(i=lastCreatedObstacle)
 				
 			else
-				lastObstacleCatCollideId = i
-				newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
-				SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
+				if(GetPhysicsCollision(1,i))
+				jumping=0
+				endif
+				
+				if(GetPhysicsCollision(8,i))
+					if i = lastObstacleCatCollideId
+						
+					else
+						lastObstacleCatCollideId = i
+						newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
+						SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
+					endif
+				endif
 			endif
-		endif
-		printc("gato Y: ")
-		printc(GetSpriteY(8)+GetSpriteHeight(8)/2)
-		printc("altura obstáculo superfície: ")
-		Print(GetSpriteY(200) -GetSpriteHeight(200)/2)
-	next i
+			
+			
+		next i
+	
+	endif
+	
+	
 return
 
 

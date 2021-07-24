@@ -62,7 +62,7 @@ UpdateDogState:
 	
 	
 	
-	
+	//charactersVelocity=7500
 	SetSpritePhysicsVelocity(1,charactersVelocity,GetSpritePhysicsVelocityY(1))
 
 	

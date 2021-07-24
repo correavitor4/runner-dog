@@ -40,6 +40,8 @@ actuallyBackground =1
 nextChange = 1280
 nextPositionToCreateObstacle = 1000
 lastObstacleCatCollideId = 0
+maxSpritebusy=0
+lastCreatedObstacle=200
 
 
 
