@@ -77,32 +77,41 @@ UpdateObstacles:
 	
 	//VERIFY COLLISIONS
 	
-	if(maxSpritebusy=0)
-		for i=200 to (actuallyObstacleId-1)
-			if(GetPhysicsCollision(1,i))
-				jumping=0
-			endif
-			
-			if(GetPhysicsCollision(8,i))
-				if i = lastObstacleCatCollideId
-					
-				else
-					lastObstacleCatCollideId = i
-					newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
-					SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
-				endif
-			endif
-			
-		next i
 	
-	else
+	for i=200 to (actuallyObstacleId-1)
+		if(GetSpriteExists(i))
+			if(GetPhysicsCollision(1,i))
+			if((GetSpriteY(1)-GetSpriteHeight(1)/2)>(GetSpriteY(i)-GetSpriteHeight(i)/2))
+				gameOver()
+			endif
+			jumping=0
+		endif
+		
+		if(GetPhysicsCollision(8,i))
+			if i = lastObstacleCatCollideId
+				
+			else
+				lastObstacleCatCollideId = i
+				newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
+				SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
+			endif
+		endif
+		endif
+		
+		
+	next i
+	
+	/*else
 			
 		for i=200 to (210)
 			if(i=lastCreatedObstacle)
 				
 			else
 				if(GetPhysicsCollision(1,i))
-				jumping=0
+					if((GetSpriteY(1)-GetSpriteHeight(1)/2)>(GetSpriteY(i)-GetSpriteHeight(i)/2))
+						gameOver()
+					endif
+					jumping=0
 				endif
 				
 				if(GetPhysicsCollision(8,i))
@@ -119,7 +128,7 @@ UpdateObstacles:
 			
 		next i
 	
-	endif
+	endif*/
 	
 	
 return

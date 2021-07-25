@@ -21,29 +21,6 @@
 #include "GameController.agc"
 
 
-SetPhysicsDebugOn()
-
-
-
-//VARIABLES
-pontuacao = 0
-
-
-
-
-
-//Control variables
-first_frame_complete = 0
-jumpCount=0
-jumping=0
-actuallyObstacleId=200
-charactersVelocity = 7500
-actuallyBackground =1
-nextChange = 1280
-nextPositionToCreateObstacle = 1000
-lastObstacleCatCollideId = 0
-maxSpritebusy=0
-lastCreatedObstacle=200
 
 
 
@@ -69,6 +46,35 @@ UseNewDefaultFonts( 1 ) // since version 2.0.22 we can use nicer default fonts
 startMenu()
 
 
+//Label que inicia o jogo (sub-rotina)
+gameStarted:
+
+
+SetPhysicsDebugOn()
+
+
+
+//VARIABLES
+pontuacao = 0
+
+
+
+
+
+//Control variables
+first_frame_complete = 0
+jumpCount=0
+jumping=0
+actuallyObstacleId=200
+charactersVelocity = 7500
+actuallyBackground =1
+nextChange = 1280
+nextPositionToCreateObstacle = 1000
+lastObstacleCatCollideId = 0
+maxSpritebusy=0
+lastCreatedObstacle=200
+
+
 gosub LoadSprites
 gosub StartPhysics
 gosub CreateSounds
@@ -76,25 +82,28 @@ gosub CreateSounds
 
 
 
-do
-	
-	SetViewOffset(GetSpriteX(1),0)
-	print(GetSpriteX(1))
-	gosub VerifyCameraPosition
-	
-	obstacleXCountPosition=obstacleXCountPosition+4
-	
-	
 
-	gosub UpdateDogState
-	updateCatState(charactersVelocity)
-	
-	gosub UpdateObstacles
-	first_frame_complete=1
-	
-	gosub UpdateSounds
-	
-	
-	
-    Sync()
-loop
+	do
+		
+		SetViewOffset(GetSpriteX(1),0)
+		print(GetSpriteX(1))
+		gosub VerifyCameraPosition
+		
+		obstacleXCountPosition=obstacleXCountPosition+4
+		
+		
+
+		gosub UpdateDogState
+		updateCatState(charactersVelocity)
+		
+		gosub UpdateObstacles
+		first_frame_complete=1
+		
+		gosub UpdateSounds
+		
+		
+		
+		Sync()
+	loop
+
+return
