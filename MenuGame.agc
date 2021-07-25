@@ -2,14 +2,21 @@ function menu()
 	//SPRITE CREATE
 	LoadImage(23,"buttons/play-button.png")
 	LoadImage(24,"buttons/play-button-clicked.png")
+	LoadImage(25,"background//full_background.png")
+	
+	//CREATE SPRITES
+	CreateSprite(30,25)
+	
+
 	
 	
-	//LOADSPRITES
-	//LoadSprite(30,23) //PLAY-BUTTON
+	//SET SPRITE SIZE
+	SetSpriteSize(30,GetVirtualWidth(),GetVirtualHeight())
 	
 	
-	//POSITIONATE SPRITE
-	//SetSpritePosition(30,GetVirtualHeight)
+	//POSITIONATE SPRITE/IMAGE
+	SetSpritePosition(30,0,0)
+	
 	
 	
 	
