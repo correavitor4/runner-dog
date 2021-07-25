@@ -17,7 +17,8 @@
 #include "Cat.agc"
 #include "Obstacles.agc"
 #include "Sounds.agc"
-
+#include "MenuGame.agc"
+#include "GameController.agc"
 
 
 SetPhysicsDebugOn()
@@ -62,6 +63,10 @@ SetOrientationAllowed( 1, 1, 1, 1 ) // allow both portrait and landscape on mobi
 SetSyncRate( 60,10) // 
 SetScissor( 0,0,0,0 ) // use the maximum available screen space, no black borders
 UseNewDefaultFonts( 1 ) // since version 2.0.22 we can use nicer default fonts
+
+
+//GAME START WITH MENU SCREEN
+startMenu()
 
 
 gosub LoadSprites
