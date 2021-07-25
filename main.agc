@@ -14,7 +14,7 @@
 #include "PhysicsSettings.agc"
 #include "LoadBackgrounds.agc"
 #include "verifyCamera.agc"
-#include "Cat.agc"
+//#include "Cat.agc"
 #include "Obstacles.agc"
 #include "Sounds.agc"
 #include "MenuGame.agc"
@@ -50,7 +50,7 @@ startMenu()
 gameStarted:
 
 
-SetPhysicsDebugOn()
+//SetPhysicsDebugOn()
 
 
 
@@ -94,7 +94,7 @@ gosub CreateSounds
 		
 
 		gosub UpdateDogState
-		updateCatState(charactersVelocity)
+		//updateCatState(charactersVelocity)
 		
 		gosub UpdateObstacles
 		first_frame_complete=1
