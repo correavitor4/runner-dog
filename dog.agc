@@ -35,20 +35,7 @@ function animateDogSprite()
 endfunction
 
 
-function updateDogState()
-	if(GetSpriteY(1)>524)
-		SetSpritePosition(1,GetSpriteX(1)+4,524)  //dog move 4px per frame
-		SetSpritePhysicsCanRotate(1,0)
-	else
-		SetSpritePosition(1,GetSpriteX(1)+4,GetSpriteY(1))  //dog move 4px per frame
-		SetSpritePhysicsCanRotate(1,0)
-	endif
-	
-endfunction
-
-
-DogJump:
-
+UpdateDogState:
 	if(GetRawKeyPressed(32) and jumping<2)
 		jump_count=30
 		jumping=jumping+1
@@ -60,23 +47,24 @@ DogJump:
 	
 	endif
 	
+	if(GetPhysicsCollision(1,3))
+		jumping=0
+	endif
 	
-	if (GetSpriteY(1)=yGroundDog)
+	if(GetPhysicsCollision(1,5))
+		jumping=0
+	endif
+	
+	if(GetPhysicsCollision(1,7))
 		jumping=0
 	endif
 	
 	
 	
-	Print(GetSpriteY(1))
 	
+	//charactersVelocity=7500
+	SetSpritePhysicsVelocity(1,charactersVelocity,GetSpritePhysicsVelocityY(1))
+
 	
-	
-return 
-
-
-
-
-
- 
-
+return
 

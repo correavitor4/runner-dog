@@ -81,7 +81,7 @@ SetSpritePosition(ground2,GetVirtualWidth(),GetVirtualHeight()-100)
 SetSpritePosition(background2,GetVirtualWidth(),0)
 SetSpritePosition(ground3,GetVirtualWidth()*2,GetVirtualHeight()-100)
 SetSpritePosition(background3,GetVirtualWidth()*2,0)
-SetSpritePosition(dog,10,GetSpriteY(ground)-103)
+SetSpritePosition(dog,100,0)
 SetSpritePosition(cat,650,GetSpriteY(ground)-103)
 
 
@@ -96,19 +96,28 @@ SetSpriteShapeBox(ground3,-GetVirtualWidth()/2+1,-45,GetVirtualWidth()/2-1,50,0)
 
 SetSpritePhysicsOn(dog,2)
 SetSpritePhysicsOn(cat,2)
-//SetSpritePhysicsOn(ground,1)
-//SetSpritePhysicsOn(ground2,1)
-//SetSpritePhysicsOn(ground3,1)
+SetSpritePhysicsOn(ground,1)
+SetSpritePhysicsOn(ground2,1)
+SetSpritePhysicsOn(ground3,1)
+
+
+
+
+SetSpritePhysicsCanRotate(1,0)
+SetSpritePhysicsCanRotate(8,0)
+
+
+
+
+SetSpritePhysicsMass(1,0.005)
+SetSpritePhysicsMass(8,0.005)
 
 
 
 
 
-SetSpritePhysicsMass(1,10)
-SetSpritePhysicsMass(8,10)
-
-
-
+SetSpritePhysicsFriction(1,0)
+SetSpritePhysicsFriction(8,0)
 
 
 
@@ -119,13 +128,12 @@ PlaySprite(1,20)
 PlaySprite(8,10)
 
 
-while obstacleXCountPosition<2400
-	createObstacleSprites(ObstableSpriteId,Random(20,22),obstacleXCountPosition)
-	obstacleXCountPosition=obstacleXCountPosition+300
-	ObstableSpriteId=ObstableSpriteId+1
-	
-	
-endwhile
+
+//Start cat and dog velocity
+//SetSpritePhysicsVelocity(8,charactersVelocity,0)
+//SetSpritePhysicsVelocity(1,charactersVelocity,0)
+
+
 
 
 return

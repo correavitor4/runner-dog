@@ -7,99 +7,131 @@ endfunction
 
 
 
-function createObstacleSprites(id_sprite,id_image,positionXCount)
+function createObstacleSprites(id_sprite,positionXCount)
+	//DEFINE (WITH RANDOM PARAMETERS) A IMAGE TO USE FOR SPRITE CREATION
+	id_image = Random(20,22)
+	
+	//CREATE THE SPRITE
 	CreateSprite(id_sprite,id_image)
 	
-	//The function only create sprite when the rest division of coordinates/300 are 0
-	if(MOD(positionXCount,300)=0)
-		if(id_image=20)
-			setspriteSize(id_sprite,110,100)
-			SetSpritePosition(id_sprite,Random(positionXCount+50,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
-		endif
-		
-		if(id_image=21)
-			setspriteSize(id_sprite,110,200)
-			SetSpritePosition(id_sprite,Random(positionXCount+50,positionXCount+300),(GetVirtualHeight()-300)-GetSpriteY(id_sprite))
-		endif
-		
-		if(id_image=22)
-			setspriteSize(id_sprite,110,250)
-			SetSpritePosition(id_sprite,Random(positionXCount+50,positionXCount+300),(GetVirtualHeight()-350)-GetSpriteY(id_sprite))
-		endif
-		
-		/*if(id_image=23)
-			setspriteSize(id_sprite,110,100)
-			SetSpritePosition(id_sprite,Random(positionXCount,positionXCount+300),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
-		endif*/
-		
+	
+	
+	
+	
+	//CONFIGURE CREATED SPRITE
+	if(id_image=20)
+		setspriteSize(id_sprite,110,100)
+		SetSpritePosition(id_sprite,Random(positionXCount+1280,positionXCount+1680),(GetVirtualHeight()-200)-GetSpriteY(id_sprite))
 		
 	endif
 	
+	if(id_image=21)
+		setspriteSize(id_sprite,110,200)
+		SetSpritePosition(id_sprite,Random(positionXCount+1280,positionXCount+1680),(GetVirtualHeight()-300)-GetSpriteY(id_sprite))
+	endif
+	
+	if(id_image=22)
+		setspriteSize(id_sprite,110,250)
+		SetSpritePosition(id_sprite,Random(positionXCount+1280,positionXCount+1680),(GetVirtualHeight()-350)-GetSpriteY(id_sprite))
+	endif
 	
 	
+	//TURN ON SPRITE PHYSICS
+	SetSpritePhysicsOn(id_sprite,1)
 	
-	
+	//CREATE SHAPEBOX OF SPRITE PHYSICS
+	SetSpriteShapeBox(id_sprite,-GetSpriteWidth(id_sprite)/2,-GetSpriteHeight(id_sprite)/2,GetSpriteWidth(id_sprite)/2,GetSpriteHeight(id_sprite)/2,0)
 endfunction
 
 
 UpdateObstacles:
-	if (Mod(obstacleXCountPosition,300)=0)
-		createObstacleSprites(ObstableSpriteId,random(20,22),obstacleXCountPosition)
-		ObstableSpriteId=ObstableSpriteId+1
+	Print(lastCreatedObstacle)
+	
+	if GetSpriteX(1)>=nextPositionToCreateObstacle
+		
+		
+		
+		if actuallyObstacleId <= 210
+			DeleteSprite(actuallyObstacleId)
+			createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
+			lastCreatedObstacle = actuallyObstacleId
+			actuallyObstacleId=actuallyObstacleId+1
+			
+		else 
+			maxSpritebusy=1
+			DeleteSprite(200)
+			actuallyObstacleId=200
+			createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
+			lastCreatedObstacle = actuallyObstacleId
+			actuallyObstacleId=actuallyObstacleId+1
+			
+
+			
+		endif	
+		
+		
+		
+		nextPositionToCreateObstacle= nextPositionToCreateObstacle+400
 	endif
+	
+	
+	//VERIFY COLLISIONS
+	
+	
+	for i=200 to (actuallyObstacleId-1)
+		if(GetSpriteExists(i))
+			if(GetPhysicsCollision(1,i))
+			if((GetSpriteY(1)-GetSpriteHeight(1)/2)>(GetSpriteY(i)-GetSpriteHeight(i)/2))
+				gameOver()
+			endif
+			jumping=0
+		endif
+		
+		if(GetPhysicsCollision(8,i))
+			if i = lastObstacleCatCollideId
+				
+			else
+				lastObstacleCatCollideId = i
+				newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
+				SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
+			endif
+		endif
+		endif
+		
+		
+	next i
+	
+	/*else
+			
+		for i=200 to (210)
+			if(i=lastCreatedObstacle)
+				
+			else
+				if(GetPhysicsCollision(1,i))
+					if((GetSpriteY(1)-GetSpriteHeight(1)/2)>(GetSpriteY(i)-GetSpriteHeight(i)/2))
+						gameOver()
+					endif
+					jumping=0
+				endif
+				
+				if(GetPhysicsCollision(8,i))
+					if i = lastObstacleCatCollideId
+						
+					else
+						lastObstacleCatCollideId = i
+						newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
+						SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
+					endif
+				endif
+			endif
+			
+			
+		next i
+	
+	endif*/
+	
+	
 return
 
 
-VerifyObstaclesCollision:
-	
-	xMin=GetSpriteX(actuallyObstacleId)-GetSpriteWidth(actuallyObstacleId)/2
-	xMax=GetSpriteX(actuallyObstacleId)+GetSpriteWidth(actuallyObstacleId)/2
-	yMin=GetSpriteY(actuallyObstacleId)+GetSpriteHeight(actuallyObstacleId)/2
-	yMax=GetSpriteY(actuallyObstacleId)-GetSpriteHeight(actuallyObstacleId)/2
-	xMinNextObstacle=GetSpriteX(actuallyObstacleId+1)-GetSpriteWidth(actuallyObstacleId+1)/2
-	xMinDog=GetSpriteX(1)-GetSpriteWidth(1)/2
-	xMaxDog=GetSpriteX(1)+GetSpriteWidth(1)/2
-	yMinDog=GetSpriteY(1)+GetSpriteHeight(1)/2
-	yMaxDog=GetSpriteY(1)-GetSpriteHeight(1)/2
-	
-	if(GetSpriteImageID(actuallyObstacleId)=20)
-		yGroundDog=524-110
-	else
-		if(GetSpriteImageID(actuallyObstacleId)=22)
-			yGroundDog=524-260
-			
-		else
-			yGroundDog=yMax
-		endif
-	endif
-	
-	
-	if(xMaxDog>=xMin)
-		
-		if xMinDog < xMax
-			if yMinDog > yGroundDog
-				if jumping=0
-					SetSpritePosition(1,GetSpriteX(1),yGroundDog)
-				endif
-				
-				
-			else
-				SetSpritePosition(1,GetSpriteX(1),GetSpriteY(1))
-					
-			endif
-				
-			
-		endif
-		
-	else
-		yGroundDog=524
-	endif
-	
-	if(xMaxDog>=xMinNextObstacle)
-		actuallyObstacleId=actuallyObstacleId+1
-		jumping=0
-	endif
-	
-	
-	
-return 
+
