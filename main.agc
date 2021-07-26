@@ -14,7 +14,7 @@
 #include "PhysicsSettings.agc"
 #include "LoadBackgrounds.agc"
 #include "verifyCamera.agc"
-#include "Cat.agc"
+//#include "Cat.agc"
 #include "Obstacles.agc"
 #include "Sounds.agc"
 #include "MenuGame.agc"
@@ -50,7 +50,7 @@ startMenu()
 gameStarted:
 
 
-SetPhysicsDebugOn()
+//SetPhysicsDebugOn()
 
 
 
@@ -84,22 +84,25 @@ gosub CreateSounds
 
 
 	do
-		
+		//FAZ A CÂMERA ACOMPANHAR O MOVIMENTO DO CACHORRO
 		SetViewOffset(GetSpriteX(1),0)
-		print(GetSpriteX(1))
 		gosub VerifyCameraPosition
 		
 		obstacleXCountPosition=obstacleXCountPosition+4
 		
-		
+		PrintC("Pontuação: ")
+		Print(pontuation)
 
 		gosub UpdateDogState
-		updateCatState(charactersVelocity)
+		//updateCatState(charactersVelocity)
 		
 		gosub UpdateObstacles
 		first_frame_complete=1
 		
 		gosub UpdateSounds
+		
+		
+		//gosub UpdatePontuation
 		
 		
 		

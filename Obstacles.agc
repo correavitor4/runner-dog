@@ -45,7 +45,7 @@ endfunction
 
 
 UpdateObstacles:
-	Print(lastCreatedObstacle)
+
 	
 	if GetSpriteX(1)>=nextPositionToCreateObstacle
 		
@@ -54,6 +54,7 @@ UpdateObstacles:
 		if actuallyObstacleId <= 210
 			DeleteSprite(actuallyObstacleId)
 			createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
+			pontuation=pontuation+1
 			lastCreatedObstacle = actuallyObstacleId
 			actuallyObstacleId=actuallyObstacleId+1
 			
@@ -62,6 +63,7 @@ UpdateObstacles:
 			DeleteSprite(200)
 			actuallyObstacleId=200
 			createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
+			pontuation=pontuation+1
 			lastCreatedObstacle = actuallyObstacleId
 			actuallyObstacleId=actuallyObstacleId+1
 			
@@ -81,13 +83,14 @@ UpdateObstacles:
 	for i=200 to (actuallyObstacleId-1)
 		if(GetSpriteExists(i))
 			if(GetPhysicsCollision(1,i))
-			if((GetSpriteY(1)-GetSpriteHeight(1)/2)>(GetSpriteY(i)-GetSpriteHeight(i)/2))
-				gameOver()
+				if((GetSpriteY(1)-GetSpriteHeight(1)/2)>(GetSpriteY(i)-GetSpriteHeight(i)/2))
+					gameOver()
+				endif
+				jumping=0
 			endif
-			jumping=0
 		endif
 		
-		if(GetPhysicsCollision(8,i))
+		/*if(GetPhysicsCollision(8,i))
 			if i = lastObstacleCatCollideId
 				
 			else
@@ -95,8 +98,8 @@ UpdateObstacles:
 				newCatPositionY = GetSpriteY(i)-GetSpriteHeight(i)/2-GetSpriteHeight(8)
 				SetSpritePosition(8,GetSpriteX(8),newCatPositionY)
 			endif
-		endif
-		endif
+		endif*/
+		
 		
 		
 	next i

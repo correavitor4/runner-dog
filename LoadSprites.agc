@@ -25,7 +25,7 @@ OTHER:
 
 //Load images
 loadDogImages()
-loadCatImages()
+//loadCatImages()
 loadObstacleImages()
 
 LoadImage(13,"background/layer_1.png")
@@ -41,7 +41,7 @@ CreateSprite(background3,13)
 CreateSprite(ground3,14)
 
 createDogSprite(dog,1)
-createCatSprite()
+//createCatSprite()
 
 
 /*createObstacleSprites(9,20)
@@ -53,7 +53,7 @@ createObstacleSprites(11,22)*/
 
 //ANIMATE SPRITES
 animateDogSprite()
-animateCatSprite()
+//animateCatSprite()
 
 
 
@@ -67,7 +67,7 @@ SetSpriteSize(ground2,GetVirtualWidth(),100)
 SetSpriteSize(background3,GetVirtualWidth(),GetVirtualHeight())
 SetSpriteSize(ground3,GetVirtualWidth(),100)
 SetSpriteSize(dog,130,100)
-SetSpriteSize(cat,110,80)
+//SetSpriteSize(cat,110,80)
 /*SetSpriteSize(9,40,100)
 SetSpriteSize(10,50,100)
 SetSpriteSize(11,50,100)*/
@@ -82,7 +82,7 @@ SetSpritePosition(background2,GetVirtualWidth(),0)
 SetSpritePosition(ground3,GetVirtualWidth()*2,GetVirtualHeight()-100)
 SetSpritePosition(background3,GetVirtualWidth()*2,0)
 SetSpritePosition(dog,100,0)
-SetSpritePosition(cat,650,GetSpriteY(ground)-103)
+//SetSpritePosition(cat,650,GetSpriteY(ground)-103)
 
 
 
@@ -95,7 +95,7 @@ SetSpriteShapeBox(ground3,-GetVirtualWidth()/2+1,-45,GetVirtualWidth()/2-1,50,0)
 
 
 SetSpritePhysicsOn(dog,2)
-SetSpritePhysicsOn(cat,2)
+//SetSpritePhysicsOn(cat,2)
 SetSpritePhysicsOn(ground,1)
 SetSpritePhysicsOn(ground2,1)
 SetSpritePhysicsOn(ground3,1)
@@ -104,20 +104,20 @@ SetSpritePhysicsOn(ground3,1)
 
 
 SetSpritePhysicsCanRotate(1,0)
-SetSpritePhysicsCanRotate(8,0)
+//SetSpritePhysicsCanRotate(8,0)
 
 
 
 
 SetSpritePhysicsMass(1,0.005)
-SetSpritePhysicsMass(8,0.005)
+//SetSpritePhysicsMass(8,0.005)
 
 
 
 
 
 SetSpritePhysicsFriction(1,0)
-SetSpritePhysicsFriction(8,0)
+//SetSpritePhysicsFriction(8,0)
 
 
 
@@ -125,7 +125,7 @@ SetSpritePhysicsFriction(8,0)
 
 //Turn on sprites animation
 PlaySprite(1,20)
-PlaySprite(8,10)
+//PlaySprite(8,10)
 
 
 

@@ -1,3 +1,26 @@
+//VARIABLES
+//checkpointPosition=1000
+pontuation=0
+
+
+/*UpdatePontuation:
+	PrintC("Pontuação: ")
+	Print(pontuation)
+	for i=200 to 210
+		if(GetSpriteExists(i))
+			if(GetSpriteX(1)=GetSpriteX(i))
+				pontuation=pontuation+1
+				
+			endif
+		endif
+	next i
+		
+
+return */
+
+
+
+
 function startMenu()
 	menu()
 endfunction 
