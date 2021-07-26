@@ -28,6 +28,8 @@ function menu()
 	SetVirtualButtonImageUp (1, 23)
 	SetVirtualButtonImageDown(1,24)
 
+
+
 	
 	//REPEAT WHEN MENU IS ON
 	do
