@@ -84,14 +84,14 @@ gosub CreateSounds
 
 
 	do
-		
+		//FAZ A CÂMERA ACOMPANHAR O MOVIMENTO DO CACHORRO
 		SetViewOffset(GetSpriteX(1),0)
-		print(GetSpriteX(1))
 		gosub VerifyCameraPosition
 		
 		obstacleXCountPosition=obstacleXCountPosition+4
 		
-		
+		PrintC("Pontuação: ")
+		Print(pontuation)
 
 		gosub UpdateDogState
 		//updateCatState(charactersVelocity)
@@ -100,6 +100,9 @@ gosub CreateSounds
 		first_frame_complete=1
 		
 		gosub UpdateSounds
+		
+		
+		//gosub UpdatePontuation
 		
 		
 		

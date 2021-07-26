@@ -45,7 +45,7 @@ endfunction
 
 
 UpdateObstacles:
-	Print(lastCreatedObstacle)
+
 	
 	if GetSpriteX(1)>=nextPositionToCreateObstacle
 		
@@ -54,6 +54,7 @@ UpdateObstacles:
 		if actuallyObstacleId <= 210
 			DeleteSprite(actuallyObstacleId)
 			createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
+			pontuation=pontuation+1
 			lastCreatedObstacle = actuallyObstacleId
 			actuallyObstacleId=actuallyObstacleId+1
 			
@@ -62,6 +63,7 @@ UpdateObstacles:
 			DeleteSprite(200)
 			actuallyObstacleId=200
 			createObstacleSprites(actuallyObstacleId,nextPositionToCreateObstacle)
+			pontuation=pontuation+1
 			lastCreatedObstacle = actuallyObstacleId
 			actuallyObstacleId=actuallyObstacleId+1
 			
