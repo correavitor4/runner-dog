@@ -9,6 +9,6 @@ UpdateSounds:
 //MUSIC
 if(GetMusicPlaying()=0)
 	PlayMusic(1)
+	SetMusicSystemVolume (2)
 endif
-
 return 
