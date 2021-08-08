@@ -55,7 +55,7 @@ gameStarted:
 
 
 //VARIABLES
-pontuacao = 0
+pontuation = 0
 
 
 
